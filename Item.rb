@@ -1,10 +1,10 @@
 class Item
-    attr_reader :name :amount :units
+    attr_reader :name, :amount, :units
     attr_writer :units
     # Get the name of the food to add to the list
-    def initialize(name)
+    def initialize(name, amount)
         @name = name.capitalize
-        @amount = 0
+        @amount = amount
     end
 
     # If two foods string compare ignoring case, then they are equal
@@ -15,6 +15,10 @@ class Item
     # Set the units of the food you're using
     def setUnits(unit)
         @units = unit
+    end
+
+    def add(item)
+        @amount = @amount + item.amount
     end
 
 end
