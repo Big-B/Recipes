@@ -1,6 +1,8 @@
 class Recipe
     require './Item.rb'
 
+    attr_accessor :instructions
+
     def initialize(name)
         @name = name.capitalize
         @items = Hash.new
@@ -15,6 +17,15 @@ class Recipe
         end
     end
 
+    def removeItem(item)
+        if(@items.has_key?(item.name))
+            @items.delete(item.name)
+        end
+    end
+
+    def print()
+        @items.each{ |x,y| p x}
+    end
 end
 
 beefRoll = Recipe.new("Beef Rollup")
@@ -25,3 +36,7 @@ beefRoll.addItem(beef)
 beefRoll.addItem(tortilla)
 beefRoll.addItem(beef2)
 p beef.amount
+beefRoll.print
+beefRoll.removeItem(beef)
+beefRoll.print
+
