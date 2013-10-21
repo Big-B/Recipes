@@ -2,6 +2,7 @@ class Recipe
     require './Item.rb'
 
     attr_accessor :instructions
+    attr_reader :items
 
     # Give the recipe a name and initialize the list of ingredients
     def initialize(name)
@@ -30,4 +31,9 @@ class Recipe
     def print()
         @items.each{ |x,y| p x}
     end
+
+    def ==(other)
+        return (other.items == @items) && (instructions == @instructions)
+    end
+
 end
