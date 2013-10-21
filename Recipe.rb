@@ -3,11 +3,13 @@ class Recipe
 
     attr_accessor :instructions
 
+    # Give the recipe a name and initialize the list of ingredients
     def initialize(name)
         @name = name.capitalize
         @items = Hash.new
     end
 
+    # Add an item to the recipe
     def addItem(item)
         if(@items.has_key?(item.name))
             @items[item.name] = @items[item.name].add(item)
@@ -17,26 +19,15 @@ class Recipe
         end
     end
 
+    # Remove an item from the recipe
     def removeItem(item)
         if(@items.has_key?(item.name))
             @items.delete(item.name)
         end
     end
 
+    # Print out the list of items
     def print()
         @items.each{ |x,y| p x}
     end
 end
-
-beefRoll = Recipe.new("Beef Rollup")
-beef = Item.new("beef", 0)
-tortilla = Item.new("tortilla", 1)
-beef2 = Item.new("beef", 2)
-beefRoll.addItem(beef)
-beefRoll.addItem(tortilla)
-beefRoll.addItem(beef2)
-p beef.amount
-beefRoll.print
-beefRoll.removeItem(beef)
-beefRoll.print
-
