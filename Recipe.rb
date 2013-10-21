@@ -2,7 +2,7 @@ class Recipe
     require './Item.rb'
 
     attr_accessor :instructions
-    attr_reader :items
+    attr_reader :items, :name
 
     # Give the recipe a name and initialize the list of ingredients
     def initialize(name)
